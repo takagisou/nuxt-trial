@@ -15,7 +15,11 @@ import axios from 'axios'
 export default {
     async asyncData() {
         const hex = Math.floor(Math.random() * 16777215).toString(16)
-        const { data } = await axios.get(`http://www.thecolorapi.com/scheme?hex=${hex}`)
+        const { data } = await axios.get(`http://www.thecolorapi.com/scheme`, {
+            params: {
+                hex: hex
+            }
+        })
         return { data }
     }
 }
